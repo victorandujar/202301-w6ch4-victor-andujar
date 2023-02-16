@@ -5,8 +5,8 @@ const app = express();
 
 const port = process.env.PORT ?? 4000;
 
-const server = app.listen(port);
+app.listen(port);
 
 app.get("/", (req, res) => {
-  res.json({ pong: true });
+  res.status(200).json({ pong: true });
 });
