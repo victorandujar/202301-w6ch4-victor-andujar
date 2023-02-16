@@ -1,4 +1,4 @@
-interface ThingStructure {
+export interface ThingStructure {
   id: number;
   name: string;
 }

@@ -1,5 +1,6 @@
 import { type Request, type Response } from "express";
 import thingsIknow from "../data/data.js";
+import { type ThingStructure } from "../data/types.js";
 
 export const getThings = (req: Request, res: Response) => {
   if (!thingsIknow) {
@@ -22,4 +23,18 @@ export const deleteThingById = (req: Request, res: Response) => {
 
   thingsIknow.splice(+id - 1, 1);
   res.status(201).json({ thingsIknow });
+};
+
+export const addThing = (
+  req: Request<
+    Record<string, unknown>,
+    Record<string, unknown>,
+    ThingStructure
+  >,
+  res: Response
+) => {
+  const newThing = req.body;
+
+  thingsIknow.push({ ...newThing, id: Date.now() });
+  res.status(200).json({ thingsIknow });
 };
