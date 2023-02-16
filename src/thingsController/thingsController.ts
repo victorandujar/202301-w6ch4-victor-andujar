@@ -16,3 +16,10 @@ export const getThingById = (req: Request, res: Response) => {
   const thingById = thingsIknow.find((thing) => thing.id === +id);
   res.status(200).json({ thingById });
 };
+
+export const deleteThingById = (req: Request, res: Response) => {
+  const { id } = req.params;
+
+  thingsIknow.splice(+id - 1, 1);
+  res.status(201).json({ thingsIknow });
+};
