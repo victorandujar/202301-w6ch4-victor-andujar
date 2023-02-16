@@ -1,4 +1,6 @@
-const thingsIknow = [
+import { type ThingsStructure } from "./types";
+
+const thingsIknow: ThingsStructure = [
   {
     id: 1,
     name: "Cooking",
@@ -20,3 +22,5 @@ const thingsIknow = [
     name: "I know who I am not",
   },
 ];
+
+export default thingsIknow;
